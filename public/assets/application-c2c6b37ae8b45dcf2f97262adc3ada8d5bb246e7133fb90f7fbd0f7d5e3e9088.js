@@ -11571,7 +11571,7 @@ class CreateLink {
     $("input[value='Add Link']").on("click", this.addLink.bind(this))
   }
 
-  function addLink(e) {
+  addLink(e) {
     e.preventDefault();
 
     const url = $("#link_url:valid").val()
@@ -11581,7 +11581,7 @@ class CreateLink {
     url && title ? this.createLink(link) : this.handleErrors()
   }
 
-  function createLink(link) {
+  createLink(link) {
     $.ajax({
       url: "api/v1/links",
       method: "POST",
@@ -11593,7 +11593,7 @@ class CreateLink {
     }).fail(error => console.log(error))
   }
 
-  function handleErrors() {
+  handleErrors() {
     $(".create-link p").text("")
     const titleContent = $("#link_title")[0].validationMessage
     const urlContent   = $("#link_url")[0].validationMessage
@@ -11650,14 +11650,14 @@ class HotLinks {
     this.checkHotLinks()
   }
 
-  function checkHotLinks(){
+  checkHotLinks(){
     $.ajax({
       url: "https://hot-reads-cews.herokuapp.com/api/v1/hot_links",
       method: "GET"
-    }).done(this.updateHotLinks).fail(error => console.log(error))
+    }).done(this.updateHotLinks()).fail(error => console.log(error))
   }
 
-  function updateHotLinks(response) {
+  updateHotLinks(response) {
     $(".hot, .top").remove()
     $(".links article").find(`a:contains(${response[0].url})`)
     .parents("article")
@@ -11669,8 +11669,8 @@ class HotLinks {
       .prepend(`<p class="hot">hot link</p>`)
     })
   }
-
-  function createHotLinks(url) {
+  
+  createHotLinks(url) {
     const link = { link: { url: url } }
 
     $.ajax({

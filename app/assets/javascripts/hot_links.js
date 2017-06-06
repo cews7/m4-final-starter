@@ -7,14 +7,14 @@ class HotLinks {
     this.checkHotLinks()
   }
 
-  function checkHotLinks(){
+  checkHotLinks(){
     $.ajax({
       url: "https://hot-reads-cews.herokuapp.com/api/v1/hot_links",
       method: "GET"
-    }).done(this.updateHotLinks).fail(error => console.log(error))
+    }).done(this.updateHotLinks()).fail(error => console.log(error))
   }
 
-  function updateHotLinks(response) {
+  updateHotLinks(response) {
     $(".hot, .top").remove()
     $(".links article").find(`a:contains(${response[0].url})`)
     .parents("article")
@@ -26,8 +26,8 @@ class HotLinks {
       .prepend(`<p class="hot">hot link</p>`)
     })
   }
-
-  function createHotLinks(url) {
+  
+  createHotLinks(url) {
     const link = { link: { url: url } }
 
     $.ajax({

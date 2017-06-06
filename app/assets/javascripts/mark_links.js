@@ -15,6 +15,7 @@ class MarkLinks {
   markAsUnread(e) {
     e.preventDefault();
 
+    const linkId = $(e.target).attr("data_id")
     const link = { link: { read: false } }
 
     this.updateReadStatus(link, linkId)
@@ -23,6 +24,7 @@ class MarkLinks {
   markAsRead(e) {
     e.preventDefault();
 
+    const linkId = $(e.target).attr("data_id")
     const link = { link: { read: true } }
 
     this.updateReadStatus(link, linkId)

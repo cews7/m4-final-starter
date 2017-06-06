@@ -1,8 +1,7 @@
 <article id="link<%= link.id %>" class="<%= link.read ? "read" : "" %>"><br>
   Title: <h3><%= link.title %><h3><br>
-  <%= hidden_field_tag "link_id", link.id %>
   URL: <%= link_to link.url, link.url %><br>
   <p>Read? <%= link.read %></p><br>
-  <%= button_to "Mark as #{link.read ? "Unread" : "Read"}", link_path(link), method: 'patch', class: "switch" %>
+  <%= button_to "Mark as #{link.read ? "Unread" : "Read"}", link_path(link), method: 'patch', class: "switch", data_id: link.id %>
   <%= button_to "Edit", edit_link_path(link), method: 'get' %>
 </article>

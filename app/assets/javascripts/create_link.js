@@ -10,9 +10,9 @@ class CreateLink {
   function addLink(e) {
     e.preventDefault();
 
-    const url   = $("#link_url:valid").val()
+    const url = $("#link_url:valid").val()
     const title = $("#link_title:valid").val()
-    const link  = { link: { url: url, title: title} }
+    const link = { link: { url: url, title: title} }
 
     url && title ? this.createLink(link) : this.handleErrors()
   }

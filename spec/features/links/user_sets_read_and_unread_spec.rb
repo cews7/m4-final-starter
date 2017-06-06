@@ -24,7 +24,8 @@ describe 'mark links as read or unread' do
 
     describe 'when I click: mark as read' do
       xit 'it flips to true' do
-        within "#link#{user.links.last.id}" do
+
+        within "#link#{user.links.first.id}" do
           expect(page).to have_content 'Read? false'
 
           click_on "Mark as Read"

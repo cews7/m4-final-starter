@@ -1,5 +1,5 @@
 $(document).ready(() => {
-  new CreateLink
+  new CreateLink()
 })
 
 class CreateLink {

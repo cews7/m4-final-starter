@@ -17,8 +17,7 @@ class LinksController < ApplicationController
 
   def update
     @link = Link.find(params[:id])
-    @link.update(link_params)
-    if @link.save
+    if @link.update(link_params)
       flash[:success] = "Link Updated!"
       redirect_to links_path
     else
@@ -35,8 +34,8 @@ class LinksController < ApplicationController
 
   def require_login
     unless current_user
-      redirect_to login_path
       flash[:notice] = "You must log in to visit that page!"
+      redirect_to login_path
     end
   end
 

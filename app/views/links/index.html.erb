@@ -4,22 +4,19 @@
   <%= link_to 'Sign Out', logout_path, method: "delete" %>
 <% end %>
 
-<%= render partial: "form", locals: { type: "create" } %>
+<div class="create-link">
+  <%= render partial: "form", locals: { type: "create" } %>
+</div>
 
 <h3>Filters:</h3>
-By text: <input type="text" placeholder="Filter by URL or Title"/>
-<input type="submit" value="Only Unread Links" id="show-read"/>
-<input type="submit" value="Only Read Links" id="show-unread"/>
+By text: <input type="text" id="content-filter" placeholder="Filter by URL or Title"/>
+<input type="submit" value="Unread Links" id="show-read"/>
+<input type="submit" value="Read Links" id="show-unread"/>
 <br>
 <br>
 <hr>
-<% current_user.links.each do |link| %>
-  <article id="link<%= link.id %>" class="<%= link.read ? "read" : "" %>"><br>
-    Title: <%= link.title %><br>
-    <%= hidden_field_tag "link_id", link.id %>
-    URL: <%= link_to link.url, link.url %><br>
-    Read? <%= link.read %><br>
-    <%= button_to "Mark as #{link.read ? "Unread" : "Read"}", link_path(link), method: 'patch' %>
-    <%= button_to "Edit", edit_link_path(link), method: 'get' %>
-  </article>
-<% end %>
+<div class="links">
+  <% current_user.links.each do |link| %>
+  <%= render partial: 'link', locals: { link: link } %>
+  <% end %>
+</div>

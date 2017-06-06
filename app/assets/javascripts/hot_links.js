@@ -9,7 +9,7 @@ class HotLinks {
 
   function checkHotLinks(){
     $.ajax({
-      url: "https://whispering-brushlands-58561.herokuapp.com/api/v1/hot_links",
+      url: "https://hot-reads-cews.herokuapp.com/api/v1/hot_links",
       method: "GET"
     }).done(this.updateHotLinks).fail(error => console.log(error))
   }
@@ -31,7 +31,7 @@ class HotLinks {
     const link = { link: { url: url } }
 
     $.ajax({
-      url: "https://whispering-brushlands-58561.herokuapp.com/api/v1/links",
+      url: "https://hot-reads-cews.herokuapp.com/api/v1/links",
       method: "POST",
       data: link
     }).done(response => console.log(response)).fail(error => console.log(error))

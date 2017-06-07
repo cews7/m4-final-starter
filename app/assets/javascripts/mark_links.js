@@ -38,7 +38,6 @@ class MarkLinks {
       data: link
     }).done(response => console.log(response)).fail(error => console.log(error))
   }
-}
 
   displayFailure(failureData){
     console.log("FAILED attempt to update Link: " + failureData.responseText);

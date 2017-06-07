@@ -1,27 +1,13 @@
-# URLockBox
+# URL-Lockbox
+This app is made for adding links to your Lockbox! You can mark as read and it will update the companion app -- Hot-Reads. 
 
-## Final Assessment
+## Setup
 
-The URLockbox is a starter app for the final assessment for module 4 of the backend engineering program at Turing School of Software and Design.
+1. ```git clone git@github.com:cews7/m4-final-starter.git```
+2. ```bundle```
+3. ```rspec``` (24/27 passing; 1 failing 3 pending)
 
-Be sure to get familiar with what is already done, and what is not. No features are complete, but there is some set up done for several features. Use commit history if that helps.
-
-### Testing your JS with Selenium
-
-The app has the `selenium-webdriver` gem listed in the `Gemfile` and setup in the `rails_helper.rb`
-
-#### Setup
-
-Everything will be installed with Bundle.
-
-You will need to download version 46 of Firefox [here](https://www.softexia.com/windows/web-browsers/firefox-46). If you do have it, make sure it is on version 46. Selenium does not work with all versions of Firefox, so make sure that you are using Firefox 46 or else it will potentially cause you problems.
-
-If you already have Firefox and it's on a version more recent than 46, the easiest way to downgrade is to uninstall Firefox then install version 46.
-
-#### Use
-
-You can then write capybara feature tests and add `js: true` tag if you'd like your test to use the Selenium WebDriver rather than the default WebDriver.  Your tests will execute and recognize your JavaScript.
-
-If you're having problems troubleshooting asynchronous actions (like DOM changes after an AJAX request), [peruse this section of Capybara's docs](https://github.com/teamcapybara/capybara#asynchronous-javascript-ajax-and-friends)
-
-It is highly suggested that you also check out the Capybara docs and and the section on [selenium-webdriver](https://github.com/teamcapybara/capybara#selenium).
+## Run Application
+1. to run locally ```rails s``` -> ```localhost:3000```
+2. to run production  ```https://still-fjord-55858.herokuapp.com```
+3. Make an account and add links to your Lockbox!

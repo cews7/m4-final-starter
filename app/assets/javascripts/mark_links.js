@@ -18,14 +18,14 @@ class MarkLinks {
 
   updateHotLinks(response) {
     $(".hot, .top").remove()
-    $(".links article").find(`a:contains(${response.url})`)
+    $(".links article").find(`a:contains(${response[0].url})`)
     .parents("article")
-    .prepend(`<p class='top'>hottest link</p>`)
+    .prepend(`<p class='top'>Top link</p>`)
 
-    response.forEach(link => {
+    response.slice(1, 1 + response.length - 1).forEach(link => {
       $(".links article").find(`a:contains(${link.url})`)
       .parents("article")
-      .prepend(`<p class="hot">hot link</p>`)
+      .prepend(`<p class="hot">Hot link</p>`)
     })
   }
 

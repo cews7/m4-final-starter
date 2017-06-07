@@ -13,12 +13,12 @@ class MarkLinks {
     $.ajax({
       url: "https://whispering-brushlands-58561.herokuapp.com/api/v1/hot_links",
       method: "GET"
-    }).done(this.updateHotLinks()).fail(error => console.log(error))
+    }).done(this.updateHotLinks).fail(error => console.log(error))
   }
 
   updateHotLinks(response) {
     $(".hot, .top").remove()
-    $(".links article").find(`a:contains(${response[0].url})`)
+    $(".links article").find(`a:contains(${response.url})`)
     .parents("article")
     .prepend(`<p class='top'>hottest link</p>`)
 
